@@ -8,7 +8,7 @@ BUILD_OPTIONS = -ldflags "-X main.Version=$(VERSION) -X main.CommitID=$(GIT_COMM
 
 .PHONY: cyd
 cyd:
-	go mod init github.com/cyd01/gotty
+	go mod init github.com/yudai/gotty
 	CGO_ENABLED=0 go build -a -installsuffix cgo
 
 
