@@ -3,10 +3,17 @@ GIT_COMMIT = `git rev-parse HEAD | cut -c1-7`
 VERSION = 2.0.0-alpha.3
 BUILD_OPTIONS = -ldflags "-X main.Version=$(VERSION) -X main.CommitID=$(GIT_COMMIT)"
 
-.PHONY: all
-all:
+
+
+
+.PHONY: cyd
+cyd:
 	go mod init github.com/cyd01/gotty
 	CGO_ENABLED=0 go build -a -installsuffix cgo
+
+
+
+
 
 gotty: main.go server/*.go webtty/*.go backend/*.go Makefile
 	godep go build ${BUILD_OPTIONS}
